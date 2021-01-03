@@ -8,3 +8,5 @@ This extension is helping the people to make choices, user inputs some choices, 
 
 So far, the extension is still under local testing stage, which will be released soon in future.
 
+
+Reference: <a href="https://developer.chrome.com/docs/extensions/mv3/getstarted/" target="_blank">here</a>
