@@ -1,20 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <form>
-    <label>
-      Please enter a choice
-      <input id="inputChoice" type="text" name="choice" placeholder="Enter a new choice" />
-      <button type="button" id="addChoice">Add Choice</button>
-    </label>
-  </form>
-  <p id="choiceValue"></p>
-  <ul id="choiceList"></ul>
-  <script src="./popup.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choice Maker</title>
+    <link rel="stylesheet" href="./popup.css">
+  </head>
+  <body>
+    <div class="container">
+      <div id="spinner" class="hide">
+        <img src="./favicon.png" alt="making choice .."/>
+      </div>
+      <div id="choiceForm">
+        <h4>Welcome to Choice maker, start to type your choice options:</h4>
+        <form>
+          <input id="inputChoice" type="text" name="choice" placeholder="Enter a new choice" />
+          <p id="invalidInput"></p>
+          <button type="button" id="addChoice" class="hide">Add Choice</button>
+        </form>
+        <p id="choiceValue" class="hide"></p>
+        <ul id="choiceList"></ul>
+        <button type="button" id="maker" class="hide">Make choice now</button>
+        <div id="fateBox" class="hide">The choice for you: <p id="fateValue"></p></div>
+      </div>
+    </div>
+    <script src="./popup.js"></script>
+  </body>
 </html>
