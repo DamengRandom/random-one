@@ -23,13 +23,17 @@ function preventEnterPress(event) {
 
 function getCurrentChoice(event) {
   domWithId('choiceValue').textContent = event.target.value;
+  const existedChoice = choicesList.some(choice => choice === domWithId('choiceValue').textContent);
 
   if (domWithId('choiceValue').textContent.length > 20) {
-    domWithId('invalidInput').textContent = 'Oops, maximum input characters are 20.';
+    domWithId('invalidInput').textContent = 'Oops, maximum input characters are 20 ..';
     domWithId('addChoice').disabled = true;
   } else if(
     domWithId('choiceValue').textContent.length === 0 || domWithId('choiceValue').textContent === '') {
-    domWithId('invalidInput').textContent = 'Oops, choice input cannot be empty';
+    domWithId('invalidInput').textContent = 'Oops, choice input cannot be empty ..';
+    domWithId('addChoice').disabled = true;
+  } else if(existedChoice) {
+    domWithId('invalidInput').textContent = 'Oops, choice already existed ..';
     domWithId('addChoice').disabled = true;
   } else {
     domWithId('invalidInput').textContent = '';
@@ -62,6 +66,7 @@ function choiceMaker() {
 
   setTimeout(() => {
     domWithId('spinner').style.display = "none";
+    domWithId('addChoice').disabled = true;
     domWithId('choiceForm').style.display = "block";
     domWithId("fateBox").classList.remove('hide');
     domWithId('fateValue').textContent = choicesList[Math.floor(Math.random() * choicesList.length)];
