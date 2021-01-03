@@ -16,7 +16,7 @@ domWithId('maker').addEventListener('click', choiceMaker);
 // helper functions
 
 function preventEnterPress(event) {
-  if(event.keyCode === 13 || event.key === 'Enter') {
+  if (event.keyCode === 13 || event.key === 'Enter') {
     return event.preventDefault();
   }
 }
@@ -28,11 +28,11 @@ function getCurrentChoice(event) {
   if (domWithId('choiceValue').textContent.length > 20) {
     domWithId('invalidInput').textContent = 'Oops, maximum input characters are 20 ..';
     domWithId('addChoice').disabled = true;
-  } else if(
+  } else if (
     domWithId('choiceValue').textContent.length === 0 || domWithId('choiceValue').textContent === '') {
     domWithId('invalidInput').textContent = 'Oops, choice input cannot be empty ..';
     domWithId('addChoice').disabled = true;
-  } else if(existedChoice) {
+  } else if (existedChoice) {
     domWithId('invalidInput').textContent = 'Oops, choice already existed ..';
     domWithId('addChoice').disabled = true;
   } else {
@@ -58,6 +58,9 @@ function createNewNode() {
     domWithId("maker").classList.remove('hide');
     domWithId("maker").style.display = "block";
   }
+
+  // will disable add choice button after choice has been successfully added
+  domWithId('addChoice').disabled = true;
 }
 
 function choiceMaker() {
